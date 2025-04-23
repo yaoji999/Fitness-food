@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ELIO - Coach Virtuel</title>
+</head>
+<body>
+    <h1>Bienvenue sur ELIO</h1>
+    <form method="post">
+        <label>Objectif :
+            <select name="objectif">
+                <option value="perte de poids">Perte de poids</option>
+                <option value="prise de masse">Prise de masse</option>
+                <option value="remise en forme">Remise en forme</option>
+            </select>
+        </label><br><br>
+        <label>Niveau :
+            <select name="niveau">
+                <option value="débutant">Débutant</option>
+                <option value="intermédiaire">Intermédiaire</option>
+                <option value="avancé">Avancé</option>
+            </select>
+        </label><br><br>
+        <label>Préférences alimentaires :
+            <select name="alimentation">
+                <option value="classique">Classique</option>
+                <option value="végétarien">Végétarien</option>
+                <option value="végan">Végan</option>
+            </select>
+        </label><br><br>
+        <button type="submit">Générer mon plan</button>
+    </form>
+
+    {% if programme %}
+        <h2>Ton plan :</h2>
+        <p>{{ programme }}</p>
+    {% endif %}
+</body>
+</html>
