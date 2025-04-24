@@ -2,29 +2,34 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>ELIO - Coach Virtuel</title>
-    <style>
-        body {
-            background-color: #ffffff;
-            color: #2ecc71;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 60px;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 22px;
-            margin: 20px 0;
-        }
-    </style>
+    <title>ELIO – Coach Virtuel</title>
 </head>
 <body>
     <h1>ELIO</h1>
-    <p>Ton coach virtuel.</p>
-    <p>Gratuit. Intelligent. Minimaliste.</p>
-    <p>Chaque jour compte.</p>
+    <p>Ton coach virtuel. Gratuit. Intelligent. Minimaliste.</p>
+
+    <form action="/generate" method="post">
+        <label for="objectif">Quel est ton objectif ?</label>
+        <select name="objectif" id="objectif" required>
+            <option value="perte de poids">Perte de poids</option>
+            <option value="prise de masse">Prise de masse</option>
+            <option value="maintien">Maintien</option>
+        </select><br><br>
+
+        <label for="niveau">Ton niveau :</label>
+        <select name="niveau" id="niveau" required>
+            <option value="débutant">Débutant</option>
+            <option value="intermédiaire">Intermédiaire</option>
+            <option value="avancé">Avancé</option>
+        </select><br><br>
+
+        <label for="jours">Combien de jours par semaine veux-tu t'entraîner ?</label>
+        <input type="number" name="jours" id="jours" min="1" max="7" required><br><br>
+
+        <label for="alimentation">Préférences alimentaires :</label>
+        <input type="text" name="alimentation" id="alimentation" placeholder="Ex: végétarien, halal..."><br><br>
+
+        <button type="submit">Générer mon programme</button>
+    </form>
 </body>
 </html>
