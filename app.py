@@ -11,7 +11,7 @@ def result():
     objectif = request.form['objectif']
     niveau = request.form['niveau']
     jours = request.form['jours']
-    preferences = request.form['preferences']
+    preferences = request.form['alimentation']
 
     # Logique de base (à personnaliser ensuite)
     programme_sport = f"Programme {objectif} pour niveau {niveau}, {jours} séances/semaine."
