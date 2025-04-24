@@ -43,31 +43,86 @@ def generer_sport(obj, niveau, freq):
 
 # ---------- GÉNÉRATION DE LA NUTRITION ----------
 def generer_nutrition(obj, preferences):
-    repas = []
-
     if obj == "perte de poids":
-        repas = [
-            "Petit-déjeuner : Flocons d’avoine + fruit + yaourt nature",
-            "Déjeuner : Poulet grillé + légumes vapeur + riz complet",
-            "Dîner : Soupe + tartine avocat + œuf dur",
-            "Snack : Amandes ou pomme"
-        ]
+        jours_repas = {
+            "Lundi": {
+                "petit_dej": "Smoothie banane + flocons d’avoine + graines de chia",
+                "dejeuner": "Poulet grillé + patate douce + brocoli vapeur",
+                "diner": "Soupe de lentilles + pain complet",
+                "snack": "Amandes"
+            },
+            "Mardi": {
+                "petit_dej": "Tartine complète + avocat + œuf au plat",
+                "dejeuner": "Saumon + riz complet + courgettes grillées",
+                "diner": "Buddha bowl (quinoa, pois chiches, légumes)",
+                "snack": "Pomme"
+            },
+            "Mercredi": {
+                "petit_dej": "Yaourt grec + granola + fraises",
+                "dejeuner": "Dinde + légumes rôtis + quinoa",
+                "diner": "Omelette aux légumes + salade verte",
+                "snack": "Barre protéinée maison"
+            },
+            "Jeudi": {
+                "petit_dej": "Pain complet + beurre d’amande + banane",
+                "dejeuner": "Bœuf sauté + riz basmati + légumes asiatiques",
+                "diner": "Velouté de potimarron + tartine de chèvre",
+                "snack": "Noix ou clémentine"
+            }
+        }
     elif obj == "prise de masse":
-        repas = [
-            "Petit-déjeuner : Oeufs + pain complet + banane",
-            "Déjeuner : Steak haché + pâtes complètes + légumes",
-            "Dîner : Quinoa + saumon + avocat",
-            "Collation : Smoothie protéiné"
-        ]
+        jours_repas = {
+            "Lundi": {
+                "petit_dej": "Oeufs + pain complet + banane",
+                "dejeuner": "Steak haché + pâtes complètes + légumes",
+                "diner": "Quinoa + saumon + avocat",
+                "snack": "Smoothie protéiné"
+            },
+            "Mardi": {
+                "petit_dej": "Porridge + beurre de cacahuète + miel",
+                "dejeuner": "Poulet rôti + riz + haricots verts",
+                "diner": "Omelette au fromage + légumes",
+                "snack": "Fruit sec"
+            },
+            "Mercredi": {
+                "petit_dej": "Pain complet + œufs brouillés",
+                "dejeuner": "Poisson blanc + pommes de terre + salade",
+                "diner": "Wok de tofu + riz",
+                "snack": "Lait + noix"
+            },
+            "Jeudi": {
+                "petit_dej": "Crêpes protéinées + fruits rouges",
+                "dejeuner": "Bœuf + légumes + riz",
+                "diner": "Pâtes au thon + légumes",
+                "snack": "Barre de céréales"
+            }
+        }
     else:  # maintien
-        repas = [
-            "Petit-déjeuner : Pain complet + fromage blanc + fruit",
-            "Déjeuner : Poisson + légumes + pommes de terre",
-            "Dîner : Soupe + œufs brouillés + légumes",
-            "Snack : Oléagineux ou fruit"
-        ]
+        jours_repas = {
+            "Lundi": {
+                "petit_dej": "Pain complet + fromage blanc + fruit",
+                "dejeuner": "Poisson + légumes + pommes de terre",
+                "diner": "Soupe + œufs brouillés + légumes",
+                "snack": "Oléagineux ou fruit"
+            },
+            "Mardi": {
+                "petit_dej": "Yaourt nature + muesli + banane",
+                "dejeuner": "Salade composée + œuf dur",
+                "diner": "Tartine chèvre-miel + soupe de légumes",
+                "snack": "Compote sans sucre"
+            },
+            "Mercredi": {
+                "petit_dej": "Céréales complètes + lait végétal",
+                "dejeuner": "Poulet grillé + semoule + légumes rôtis",
+                "diner": "Omelette + pain complet",
+                "snack": "Fruit frais"
+            },
+            "Jeudi": {
+                "petit_dej": "Tartine beurre + confiture maison",
+                "dejeuner": "Filet de poisson + riz + légumes verts",
+                "diner": "Soupe + crudités + œufs",
+                "snack": "Amandes"
+            }
+        }
 
-    if preferences:
-        repas.append(f"Préférences : {preferences}")
-
-    return "<br>".join(repas)
+    return jours_repas
