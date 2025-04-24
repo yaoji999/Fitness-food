@@ -16,7 +16,7 @@ def result():
     sport = generer_sport(objectif, niveau, jours)
     nutrition = generer_nutrition(objectif, preferences)
 
-    return render_template('result.html', sport=sport, nutrition=nutrition)
+    return render_template('result.html', sport=sport, jours_repas=nutrition)
 
 # ---------- GÉNÉRATION DU SPORT ----------
 def generer_sport(obj, niveau, freq):
