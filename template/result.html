@@ -2,18 +2,28 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ton programme</title>
+    <title>Programme personnalisé - ELIO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: #ffffff;
+            color: #2ecc71;
+            text-align: center;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 20px;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Ton programme personnalisé</h1>
-
-    <h2>Entraînement</h2>
-    <p>{{ programme }}</p>
-
-    <h2>Nutrition</h2>
-    <p>{{ nutrition }}</p>
-
-    <br>
-    <a href="/">Retour</a>
+    <h1>Ton programme est prêt</h1>
+    <p><strong>Sport :</strong> {{ sport }}</p>
+    <p><strong>Nutrition :</strong> {{ nutrition }}</p>
 </body>
 </html>
