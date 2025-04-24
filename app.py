@@ -39,38 +39,35 @@ def generer_sport(obj, niveau, freq):
 
         plan.append(f"{jour} : {séance}")
 
-    return "\n".join(plan)
+    return "<br>".join(plan)  # affiche chaque jour sur une nouvelle ligne
 
 # ---------- GÉNÉRATION DE LA NUTRITION ----------
-def generer_nutrition(obj, pref):
+def generer_nutrition(obj, preferences):
+    repas = []
+
     if obj == "perte de poids":
-        petit = "Flocons d’avoine + fruit + yaourt nature"
-        dej = "Poulet grillé + légumes vapeur + riz complet"
-        diner = "Soupe + tartine avocat + œuf dur"
-        snack = "Amandes ou pomme"
+        repas = [
+            "Petit-déjeuner : Flocons d’avoine + fruit + yaourt nature",
+            "Déjeuner : Poulet grillé + légumes vapeur + riz complet",
+            "Dîner : Soupe + tartine avocat + œuf dur",
+            "Snack : Amandes ou pomme"
+        ]
     elif obj == "prise de masse":
-        petit = "Œufs brouillés + pain complet + smoothie banane"
-        dej = "Pâtes + steak haché + haricots verts"
-        diner = "Poisson + patates douces + brocoli"
-        snack = "Shake protéiné + banane"
-    else:
-        petit = "Pain complet + beurre d’amande + thé"
-        dej = "Quinoa + légumes + œufs"
-        diner = "Salade composée + céréales + tofu ou poulet"
-        snack = "Fruit ou yaourt nature"
+        repas = [
+            "Petit-déjeuner : Oeufs + pain complet + banane",
+            "Déjeuner : Steak haché + pâtes complètes + légumes",
+            "Dîner : Quinoa + saumon + avocat",
+            "Collation : Smoothie protéiné"
+        ]
+    else:  # maintien
+        repas = [
+            "Petit-déjeuner : Pain complet + fromage blanc + fruit",
+            "Déjeuner : Poisson + légumes + pommes de terre",
+            "Dîner : Soupe + œufs brouillés + légumes",
+            "Snack : Oléagineux ou fruit"
+        ]
 
-    if pref:
-        ajustement = f" (adapté pour : {pref})"
-    else:
-        ajustement = ""
+    if preferences:
+        repas.append(f"Préférences : {preferences}")
 
-    return f"""
-    Petit-déjeuner : {petit}
-    Déjeuner : {dej}
-    Dîner : {diner}
-    Snack : {snack}
-    {ajustement}
-    """
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return "<br>".join(repas)
