@@ -3,21 +3,22 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
-@app.route('/generate', methods=['POST'])
-def generate():
+@app.route('/result', methods=['POST'])
+def result():
     objectif = request.form['objectif']
     niveau = request.form['niveau']
     jours = request.form['jours']
-    alimentation = request.form['alimentation']
+    preferences = request.form['preferences']
 
-    # Exemple simple de réponse (tu peux améliorer avec IA ensuite)
-    programme = f"Programme pour {objectif}, niveau {niveau}, {jours} jours/semaine."
-    nutrition = f"Plan nutrition adapté à une alimentation {alimentation}."
+    # Logique de base (à personnaliser ensuite)
+    programme_sport = f"Programme {objectif} pour niveau {niveau}, {jours} séances/semaine."
+    programme_nutrition = f"Nutrition adaptée à tes préférences : {preferences if preferences else 'aucune préférence'}."
 
-    return render_template('result.html', programme=programme, nutrition=nutrition)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return render_template(
+        'result.html',
+        sport=programme_sport,
+        nutrition=programme_nutrition
+    )
