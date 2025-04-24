@@ -5,11 +5,11 @@
     <title>Programme personnalisé - ELIO</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            padding: 50px;
-            background: #ffffff;
+            background-color: #ffffff;
             color: #2ecc71;
+            font-family: Arial, sans-serif;
             text-align: center;
+            padding: 50px;
         }
         h1 {
             font-size: 40px;
@@ -17,13 +17,17 @@
         }
         p {
             font-size: 20px;
-            margin: 20px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <h1>Ton programme est prêt</h1>
-    <p><strong>Sport :</strong> {{ sport }}</p>
-    <p><strong>Nutrition :</strong> {{ nutrition }}</p>
+    <h1>Ton programme personnalisé</h1>
+    <h2>Sport</h2>
+    <p>{{ sport }}</p>
+    <h2>Nutrition</h2>
+    <p>{{ nutrition }}</p>
+    <br>
+    <a href="/">Retour</a>
 </body>
 </html>
