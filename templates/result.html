@@ -14,14 +14,28 @@
 </table>
 
 <h3>Nutrition</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Repas</th>
-      <th>Contenu</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{ nutrition|safe }}
-  </tbody>
-</table>
+
+<div style="overflow-x: auto;">
+  <table style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
+    <thead style="background-color: #f8f8f8;">
+      <tr>
+        <th style="padding: 10px; border: 1px solid #ccc;">Jour</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">Petit-déjeuner</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">Déjeuner</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">Dîner</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">Snack</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for jour, repas in jours_repas.items() %}
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">{{ jour }}</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">{{ repas.petit_dej }}</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">{{ repas.dejeuner }}</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">{{ repas.diner }}</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">{{ repas.snack }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
