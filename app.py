@@ -21,25 +21,49 @@ def result():
 # ---------- GÉNÉRATION DU SPORT ----------
 def generer_sport(obj, niveau, freq):
     jours_dispo = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
-    plan = []
+    programme = {}
 
+    # Définition des exercices en fonction de l’objectif et du niveau
+    if obj == "perte de poids":
+        if niveau == "débutant":
+            echauffements = ["Marche rapide 20 min", "Course légère 10 min", "Corde à sauter 5 min", "Montée de genoux 3x30s"]
+            exercices_pool = [
+                "Squats – 3x15", "Planche – 3x30s", "Jumping jacks – 3x30s", "Fentes – 3x12/jambe",
+                "Gainage latéral – 2x30s", "Mountain climbers – 3x30s", "Crunchs – 3x20",
+                "Pont fessier – 3x15", "Pompes genoux – 3x10", "Chaise contre mur – 3x30s"
+            ]
+        elif niveau == "intermédiaire":
+            echauffements = ["Course 15 min", "Fractionné 10 min", "Corde à sauter 10 min"]
+            exercices_pool = [
+                "Squats sautés – 3x12", "Planche dynamique – 3x40s", "Burpees – 3x10",
+                "Lunges sautés – 3x10/jambe", "Abdos jambes tendues – 3x15", "Pompes – 3x12",
+                "Relevés de bassin – 3x20", "Crunch vélo – 3x20"
+            ]
+        else:  # avancé
+            echauffements = ["HIIT 10 min", "Sprint 10x30s", "Corde rapide 10 min"]
+            exercices_pool = [
+                "Burpees – 3x15", "Pompes claquées – 3x10", "Squats sautés – 4x15",
+                "Gainage dynamique – 4x40s", "Mountain climbers rapides – 4x30s",
+                "Abdos obliques – 3x25", "Fentes sautées – 3x15/jambe"
+            ]
+    else:
+        # Si pas perte de poids, on garde ton ancien système
+        return "<br>".join([
+            f"{jours_dispo[i % 7]} : Renforcement + mobilité 30 min"
+            for i in range(freq)
+        ])
+
+    # Construction du programme
     for i in range(freq):
-        jour = jours_dispo[i % len(jours_dispo)]
-        if obj == "perte de poids":
-            if niveau == "débutant":
-                séance = "Marche rapide 30 min + gainage 2x30s"
-            elif niveau == "intermédiaire":
-                séance = "HIIT 20 min + abdos"
-            else:
-                séance = "Course fractionnée 30 min + muscu légère"
-        elif obj == "prise de masse":
-            séance = "Musculation haut/bas split 45 min"
-        else:
-            séance = "Renforcement + mobilité 30 min"
+        jour = jours_dispo[i % 7]
+        echauffement = echauffements[i % len(echauffements)]
+        exercices = random.sample(exercices_pool, 5)
+        programme[jour] = {
+            "echauffement": echauffement,
+            "exercices": exercices
+        }
 
-        plan.append(f"{jour} : {séance}")
-
-    return "<br>".join(plan)  # affiche chaque jour sur une nouvelle ligne
+    return programme
 
 # ---------- GÉNÉRATION DE LA NUTRITION ----------
 def generer_nutrition(obj, preferences):
