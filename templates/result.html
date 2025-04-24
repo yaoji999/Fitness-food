@@ -1,22 +1,28 @@
 <h2>Ton programme personnalisé</h2>
 
 <h3>Sport</h3>
-
 <div style="overflow-x: auto;">
   <table style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
     <thead style="background-color: #f8f8f8;">
       <tr>
         <th style="padding: 10px; border: 1px solid #ccc;">Jour</th>
-        <th style="padding: 10px; border: 1px solid #ccc;">Activité</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">Échauffement</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">Exercices</th>
       </tr>
     </thead>
     <tbody>
-      {% for ligne in sport.split('<br>') %}
-        {% set jour, activite = ligne.split(':', 1) %}
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ccc;">{{ jour }}</td>
-          <td style="padding: 10px; border: 1px solid #ccc;">{{ activite.strip() }}</td>
-        </tr>
+      {% for jour, details in sport.items() %}
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">{{ jour }}</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">{{ details.echauffement }}</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">
+          <ul>
+            {% for exo in details.exercices %}
+              <li>{{ exo }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>
